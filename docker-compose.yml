@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  db_1:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: testDb
+      TZ: "Asia/Tokyo"
+    volumes:
+      - ./mysql.cnf:/etc/mysql/conf.d/my.cnf
+      # - ./init:/docker-entrypoint-initdb.d
+    ports:
+      - "3306:3306"
+  db_2:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: testDb
+      TZ: "Asia/Tokyo"
+    volumes:
+      - ./mysql.cnf:/etc/mysql/conf.d/my.cnf
+      # - ./init:/docker-entrypoint-initdb.d
+    ports:
+      - "3307:3306"
